@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<checklist title="Taylocraft N39203 (TAYB) Checklist" columns="4">
+<checklist>
+    <title>Taylocraft N39203 (TAYB) Checklist</title>
+    <columns>4</columns>
 
     <category name="INITIAL">
         <item>Weather &amp; Den. Alt.</item>
@@ -86,7 +88,6 @@
         <item>H.I. To Compass</item>
         <item>Doors/Windows</item>
         <item>Sqwk / VFR</item>
-        <item>Landing Light - On</item>
         <item>Strobes - As Req.</item>
         <item>Time - Note</item>
         <item>Brakes - Release</item>
@@ -127,7 +128,6 @@
     </category>
 
     <category name="PRE-LANDING">
-        <item>Landing Light - On</item>
         <item>Seat Belt/ Harness</item>
         <item>Mixture-Best Power</item>
         <item>Carb Heat - On</item>
