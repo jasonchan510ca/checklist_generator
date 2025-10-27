@@ -37,32 +37,33 @@ ITEM_STYLE = {
 # ==============================================================================
 
 def parse_xml_data():
-    """Parses XML for title, columns, and categorized items with styles."""
+    """Parses XML for title, columns, and categorized items with styles from child elements."""
     try:
         tree = ET.parse(XML_INPUT_FILE)
         root = tree.getroot()
-        
-        # Read title and number of columns from the root <checklist> tag
-        checklist_title = root.get('title', 'Checklist')
-        num_columns = int(root.get('columns', '1'))
-        
+
+        # Read title and number of columns from child elements
+        title_elem = root.find('title')
+        checklist_title = title_elem.text if title_elem is not None else 'Checklist'
+        columns_elem = root.find('columns')
+        num_columns = int(columns_elem.text) if columns_elem is not None else 1
+
         categories = []
         for category in root.findall('category'):
             name = category.get('name')
-            # Read bullet style for each category, defaulting to ''
             bullet_style = category.get('bullet_style', '')
             items = [item.text for item in category.findall('item') if item.text]
-            
+
             if name and items:
                 categories.append({
-                    "name": name, 
-                    "items": items, 
+                    "name": name,
+                    "items": items,
                     "style": bullet_style
                 })
-        
+
         print(f"✅ Parsed '{XML_INPUT_FILE}'. Using {num_columns} column(s). Found {len(categories)} categories.")
         return checklist_title, num_columns, categories
-        
+
     except FileNotFoundError:
         print(f"❌ Error: Input file not found at '{XML_INPUT_FILE}'.")
         return None, None, None
