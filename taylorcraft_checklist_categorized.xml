@@ -66,8 +66,7 @@
 
     <category name="RUN-UP">
         <item>Brakes - Set</item>
-        <item>Fuel - Left/Right (Drains)</item>
-        <item>Center (full)</item>
+        <item>Fuel - Left/Right/Cen.</item>
         <item>Flight Controls</item>
         <item>Instruments</item>
         <item>Mixture-Best Power</item>
@@ -135,14 +134,17 @@
     </category>
 
     <category name="LANDING - Front">
-        <item>Speed * 80@1500 RPM</item>
+        <item>Speed * 80KT</item>
+        <item>1500 RPM</item>
         <item>Bring other wheel down</item>
-        <item>Idle</item>
+        <item>Yoke Into the Wind (slight)</item>
+        <item>Power - Idle</item>
         <item>Brakes</item>
     </category>
 
     <category name="LANDING - Tail">
         <item>Speed * 70@Idle</item>
+        <item>Power - Idle</item>
         <item>Brakes</item>
     </category>
 

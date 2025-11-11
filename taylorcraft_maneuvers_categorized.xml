@@ -11,19 +11,28 @@
         <item>Airplane straight</item>
         <item>Yoke - FULL Forward</item>
         <item>Turn - Into the wind</item>
-        <item>Roll on throttle</item>
-        <item>Oil pressure above the red</item>
-        <item>Air Speed - Alive</item>
-        <item>Tail - Off ground</item>
-        <item>Wings - Level</item>
-        <item>Rotate 75</item>
-        <item>Engine Failure</item>
-        <item>Push for best glide</item>
-        <item> - Below TPA</item>
-        <item>     Straight ahead, land within 30 degrees</item>
-        <item> - Above TPA</item>
-        <item>     Evaluate where to land</item>
+        <item>Throttle</item>
+        <item>Oil pressure</item>
+        <item>Air Speed</item>
+        <item>Tail</item>
+        <item>Wings</item>
+        <item>Rotate 65</item>
+        <item>* Engine Failure</item>
+        <item>   Push for best glide</item>
+        <item>   - Below TPA</item>
+        <item>       Straight ahead</item>
+        <item>       land within 30 degrees</item>
+        <item>   - Above TPA</item>
+        <item>       Evaluate where to land</item>
     </category>
+
+    <category name="Safety Brief">
+        <item>Doors</item>
+        <item>Windows</item>
+        <item>Seat Belt</item>
+        <item>Heat</item>
+        <item>Communications</item>
+</category>
 
     <category name="MANEUVERS">
         <item>PRE-LANDING</item>
@@ -37,34 +46,42 @@
         <item>ANNOUNCE</item>
         <item>Check Passing Traffic (LEFT)</item>
         <item>CHOOSE:</item>
-        <item>LEFT 90&#176;, RIGHT &#176;</item>
-        <item>LEFT 180&#176;</item>
+        <item> - LEFT 90&#176;, RIGHT 90&#176;</item>
+        <item> - LEFT 180&#176;</item>
         <item>Scan for traffic</item>
     </category>
 
     <category name="STALL">
         <item>Level and coordinated</item>
         <item>Slowing the plane</item>
-        <item>Wings Below Crit. &#8736; of Attack</item>
-        <item>STALL</item>
+        <item>Wings Below Critical Angle of Attack</item>
     </category>
 
     <category name="APPROACH STALL">
+        <item>NOTE: Simulated Landing</item>
+        <item>Goals:</item>
+        <item> - Maintain coordination</item>
+        <item> - &#177;10&#176; Entry heading</item>
         <item>MANUVERS</item>
         <item>Approach stall</item>
         <item>RPM 1500</item>
         <item>Maintain altitude - v: 80KT</item>
         <item>Maintain speed - v: 80KT</item>
+        <item>RPM - Idle</item>
         <item>CLIMB Vy (500ft/min rate)</item>
         <item>YOKE pull back</item>
         <item>STALL</item>
-        <item>Push yoke - nose below horizon line</item>
+        <item>Relax Yoke, nose below horizon</item>
         <item>Full throuttle</item>
         <item>Carb heat off</item>
         <item>Maintain coordination /w rudder</item>
     </category>
 
     <category name="DEPARTURE STALL">
+        <item>NOTE: Simulated too much nose up</item>
+        <item>Goals:</item>
+        <item> - Maintain coordination</item>
+        <item> - &#177;10&#176; Entry heading</item>
         <item>MANUVERS</item>
         <item>Maintain altitude - rpm 1500</item>
         <item>Pitch up, full power</item>
@@ -76,17 +93,23 @@
     </category>
 
     <category name="STEEP TURNS">
+        <item>NOTE: Concentric circle from ground reference</item>
+        <item>Goals:</item>
+        <item> - Maintain coordination</item>
+        <item> - &#177;10&#176; Entry heading, &#177;100 ft, &#177;10 KT, &#177;10&#176; Bank</item>
         <item>MANUVERS</item>
         <item>Maintain CRUISE while turning 2200 rpm</item>
         <item>  (bottom of green arc)</item>
-        <item>Gently roll into the turn (&gt;30&#176;)</item>
+        <item>Gently roll into the turn (&gt; 30&#176;)</item>
         <item>Full power</item>
         <item>Maintain speed - little backpressure</item>
         <item>Turn 360 to original heading</item>
-        <item>Roll-out</item>
+        <item>Roll-out/Round off</item>
         <item>Power back to 2200rpm</item>
-        <item> - Maintain coordination</item>
-        <item> - &#177;10&#176;, &#177;100 ft</item>
     </category>
+
+    <!-- <category name="Airman Certification Standards">
+        <item>NOTE: Private Pilot for Airplane Category</item>
+    </category> -->
 
 </checklist>
