@@ -1,3 +1,4 @@
+import argparse
 import xml.etree.ElementTree as ET
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import inch
@@ -8,9 +9,8 @@ from reportlab.lib import colors
 # == USER VARIABLES ==
 # ==============================================================================
 
-# 1. File Paths
+# 1. File Paths (defaults, can be overridden via CLI)
 XML_INPUT_FILE = 'checklist_categorized.xml'
-PDF_OUTPUT_FILE = 'printable_checklist_categorized.pdf'
 
 # 2. Page Layout Configuration
 PAGE_SIZE = B6
@@ -36,10 +36,16 @@ ITEM_STYLE = {
 # == SCRIPT LOGIC ==
 # ==============================================================================
 
-def parse_xml_data():
-    """Parses XML for title, columns, and categorized items with styles from child elements."""
+def parse_xml_data(xml_input_file):
+    """Parses XML for title, columns, and categorized items with styles from child elements.
+
+    Args:
+        xml_input_file (str): Path to the XML file to parse.
+    Returns:
+        tuple: (title, num_columns, categories) or (None, None, None) on error.
+    """
     try:
-        tree = ET.parse(XML_INPUT_FILE)
+        tree = ET.parse(xml_input_file)
         root = tree.getroot()
 
         # Read title and number of columns from child elements
@@ -61,25 +67,30 @@ def parse_xml_data():
                     "style": bullet_style
                 })
 
-        print(f"✅ Parsed '{XML_INPUT_FILE}'. Using {num_columns} column(s). Found {len(categories)} categories.")
+        print(f"✅ Parsed '{xml_input_file}'. Using {num_columns} column(s). Found {len(categories)} categories.")
         return checklist_title, num_columns, categories
 
     except FileNotFoundError:
-        print(f"❌ Error: Input file not found at '{XML_INPUT_FILE}'.")
+        print(f"❌ Error: Input file not found at '{xml_input_file}'.")
         return None, None, None
     except (ET.ParseError, ValueError) as e:
-        print(f"❌ Error: Could not parse '{XML_INPUT_FILE}'. Check XML format and column value. Details: {e}")
+        print(f"❌ Error: Could not parse '{xml_input_file}'. Check XML format and column value. Details: {e}")
         return None, None, None
 
-def generate_checklist_pdf():
-    """Generates a categorized PDF checklist based on attributes from the XML."""
-    title, num_columns, categories = parse_xml_data()
+def generate_checklist_pdf(xml_input_file, pdf_output_file):
+    """Generates a categorized PDF checklist based on attributes from the XML.
+
+    Args:
+        xml_input_file (str): Path to the input XML file.
+        pdf_output_file (str): Path to the output PDF file.
+    """
+    title, num_columns, categories = parse_xml_data(xml_input_file)
     if not categories:
         print("No valid categories found. Aborting PDF generation.")
         return
 
     # --- Setup PDF Canvas and Title ---
-    c = canvas.Canvas(PDF_OUTPUT_FILE, pagesize=PAGE_SIZE)
+    c = canvas.Canvas(pdf_output_file, pagesize=PAGE_SIZE)
     c.setFont("Helvetica-Bold", 18)
     c.drawCentredString(PAGE_WIDTH / 2.0, PAGE_HEIGHT - MARGIN, title)
 
@@ -145,7 +156,23 @@ def generate_checklist_pdf():
         current_y -= 0.2 * inch
 
     c.save()
-    print(f"🎉 Checklist successfully generated and saved to '{PDF_OUTPUT_FILE}'.")
+    print(f"🎉 Checklist successfully generated and saved to '{pdf_output_file}'.")
 
 if __name__ == '__main__':
-    generate_checklist_pdf()
+    parser = argparse.ArgumentParser(description='Generate a categorized checklist PDF from an XML file.')
+    parser.add_argument('--input-filename', '-i', dest='input_filename',
+                        default=XML_INPUT_FILE,
+                        help=f"Path to the input XML file (default: {XML_INPUT_FILE})")
+    parser.add_argument('--output-filename', '-o', dest='output_filename',
+                        default=None,
+                        help=f"Path to the output PDF file. If omitted, defaults to 'printable_' + input_filename.replace('.xml', '.pdf')")
+
+    args = parser.parse_args()
+
+    # Compute default output filename from the input filename when not provided
+    if args.output_filename:
+        output_file = args.output_filename
+    else:
+        output_file = 'printable_' + args.input_filename.replace('.xml', '.pdf')
+
+    generate_checklist_pdf(args.input_filename, output_file)
