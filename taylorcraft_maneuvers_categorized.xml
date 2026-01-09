@@ -9,21 +9,30 @@
         <item>Departure Clearance (from Tower)</item>
         <item>Roll onto center line</item>
         <item>Airplane straight</item>
-        <item>Yoke - FULL Forward</item>
-        <item>Turn - Into the wind</item>
-        <item>Roll on throttle</item>
-        <item>Oil pressure above the red</item>
-        <item>Air Speed - Alive</item>
-        <item>Tail - Off ground</item>
-        <item>Wings - Level</item>
-        <item>Rotate 75</item>
-        <item>Engine Failure</item>
-        <item>Push for best glide</item>
-        <item> - Below TPA</item>
-        <item>     Straight ahead, land within 30 degrees</item>
-        <item> - Above TPA</item>
-        <item>     Evaluate where to land</item>
+        <item>Yoke - FULL Forward, Into the wind</item>
+        <item>Throttle</item>
+        <item>Oil pressure</item>
+        <item>Air Speed</item>
+        <item>Tail</item>
+        <item>Wings</item>
+        <item>Rotate 65</item>
+        <item>* Engine Failure</item>
+        <item>   Push for best glide</item>
+        <item>   - Below TPA</item>
+        <item>       Straight ahead</item>
+        <item>       land within 30 degrees</item>
+        <item>   - Above TPA</item>
+        <item>       Evaluate where to land</item>
     </category>
+
+    <category name="Safety Brief">
+        <item>Doors</item>
+        <item>Windows</item>
+        <item>Seat Belt</item>
+        <item>Heat</item>
+        <item>Communications</item>
+        <item>Off-field - doors</item>
+</category>
 
     <category name="MANEUVERS">
         <item>PRE-LANDING</item>
@@ -51,11 +60,10 @@
 
     <category name="APPROACH STALL">
         <item>MANUVERS</item>
-        <item>Approach stall</item>
         <item>RPM 1500</item>
         <item>Maintain altitude - v: 80KT</item>
         <item>Maintain speed - v: 80KT</item>
-        <item>CLIMB Vy (500ft/min rate)</item>
+        <item>RPM - Idle</item>
         <item>YOKE pull back</item>
         <item>STALL</item>
         <item>Push yoke - nose below horizon line</item>
@@ -77,6 +85,8 @@
 
     <category name="STEEP TURNS">
         <item>MANUVERS</item>
+        <item>Start Manuver Downind</item>
+        <item>Identify entry/exit heading</item>
         <item>Maintain CRUISE while turning 2200 rpm</item>
         <item>  (bottom of green arc)</item>
         <item>Gently roll into the turn (&gt;30&#176;)</item>
@@ -88,5 +98,14 @@
         <item> - Maintain coordination</item>
         <item> - &#177;10&#176;, &#177;100 ft</item>
     </category>
+
+    <category name="Other">
+        <item>Turn around a point</item>
+        <item>S-Turns</item>
+    </category>
+
+    <!-- <category name="Airman Certification Standards">
+        <item>NOTE: Private Pilot for Airplane Category</item>
+    </category> -->
 
 </checklist>
